@@ -1,22 +1,22 @@
 import './todoList.css';
 import React, { useCallback, useEffect, useState } from 'react';
 
-function TodoList({ list, clickfunction }) {
-
-
-
-
+function TodoList({ items, onItemClick }) {
     return (
-        <div>
+        
+        <div class="todolist-container">
+            <ul>
             {
-                list.map( item => {
+                items.map( item => {
                     return (
-                        <div onClick={()=> clickfunction(item.text)}>
-                            <p>{item.text}</p>
-                        </div>
+
+                        <li class={item.done ? 'done': 'not-done'} onClick={ ()=> !item.done && onItemClick(item) }>
+                            {item.text}
+                        </li>
                     )
                 })
             }
+            </ul>
         </div>
     );
 }

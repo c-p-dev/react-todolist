@@ -4,25 +4,45 @@ import TodoList from './components/todoList';
 
 function App() {
 
-
   const todoList =  [
     {
-      text: 'i will do this you know',
+      text: 'wash dishes',
       done: false,
     },
     {
-      text: 'i will do this you know 2',
+      text: 'study',
       done: false,
     },
     {
-      text: 'i will do this you know 3 ',
+      text: 'finish react coding interview',
+      done: true,
+    },
+    {
+      text: 'do design ',
+      done: true,
+    },
+    {
+      text: 'jogging',
       done: false,
+    },
+    {
+      text: 'cooking ',
+      done: true,
+    },
+    {
+      text: 'netflix ',
+      done: false,
+    },
+    {
+      text: 'eating ',
+      done: true,
     },
   ];
 
-  const clickFunction  = (value) => {
-    console.log('value:',value);
-    alert(`value click ${value}`, );
+  const clickFunction  = (item, event) => {
+    console.log('item:',item);
+    console.log('event', event);
+    alert(`clickFunction click ${item.text}` );
   } 
 
   return (
@@ -38,7 +58,7 @@ function App() {
           <h1>Todo Component Demo</h1>  
         </div>
         
-        <TodoList list={todoList} clickfunction={clickFunction} />
+        <TodoList items={todoList} onItemClick={clickFunction} />
       </div>
     </div>
   );
